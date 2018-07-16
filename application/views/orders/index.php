@@ -57,7 +57,7 @@
       <input name="order" class="span6" type="text"/>
   </div>
 
-  <p><input type="button" onclick="update()" value="place an order"></p>
+  <p><input type="button" onclick="place()" value="place an order"></p>
   <h1 id="orders"></h1>
 
   <table id="gadwal" class="table">
@@ -106,17 +106,17 @@
 
   });
 
-  // function update(id){
-  // var newPostKey = firebase.database().ref().child('orders').push().key;
-  // var postData = {
-  //   order: "username",
-  //   ordered_by: "random",
-  //   status: "pending"
-  // };
-  // var updates = {};
-  // updates['/orders/' + newPostKey] = postData;
-  // return firebase.database().ref().update(updates);
-  // }
+  function place(){
+  var newPostKey = firebase.database().ref().child('orders').push().key;
+  var postData = {
+    order: "username",
+    ordered_by: "random",
+    status: "pending"
+  };
+  var updates = {};
+  updates['/orders/' + newPostKey] = postData;
+  return firebase.database().ref().update(updates);
+  }
 
   function update(id){
     var order="";
